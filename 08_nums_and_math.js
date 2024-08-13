@@ -35,8 +35,10 @@
  console.log(value.toFixed(0));
  console.log(value.toPrecision(2));
 //  console.log(Math.random()*100);
-
-
+console.log(Math.floor(Math.random()*100)+1);
+const min=10
+const max=20
+console.log(Math.floor(Math.random()*(max-min))+ min);
 
 
 

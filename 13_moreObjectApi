@@ -1,0 +1,23 @@
+//api
+const course={
+  name:"web deveploment",
+  price:"999",
+  courseDirector:"kavita"
+}
+course.courseDirector
+const{courseDirector:instructor} = course
+console.log(courseDirector);
+console.log(instructor);
+//api
+// {
+//     "name": "web deveploment",
+//     "price": "999",
+//     "courseDirector": "kavita"
+// }
+//array format api recevied in webpage some time
+[
+    {"name":"kavita"},
+    {"age":"23"},
+
+]
+//random user api that is website we copy api format data
