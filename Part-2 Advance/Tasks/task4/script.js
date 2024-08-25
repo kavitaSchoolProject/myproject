@@ -1,4 +1,6 @@
 let randomNumber = parseInt(Math.random()*100+1);
+console.log(randomNumber);
+let sadEmoji = document.getElementById('sadEmoji')
 const submit =document.querySelector('#sbt')
 const userInput =document.querySelector('#guessField')
 
@@ -17,7 +19,7 @@ if(playGame){
     submit.addEventListener('click',function(e){
       e.preventDefault()
       const guess = parseInt(userInput.value)
-      console.log(guess);
+      // console.log(guess);
       validateGuess(guess)
     })  
 
@@ -47,12 +49,14 @@ function validateGuess(guess){
 
 function checkGuess(guess){
     if(guess===randomNumber){
-        displayMessage('Congratulations! You guessed the correct number.')
+        displayMessage(`Congratulations! You guessed the correct number. ${randomNumber}  😍`)
         endGame()
     }else if(guess<randomNumber){
         displayMessage('Too low!')
+        // getRandomSadEmoji()
     }else if(guess>randomNumber){
         displayMessage('Too High!')
+        // getRandomSadEmoji()
 
     }
     }
@@ -63,6 +67,8 @@ function displayGuess(guess){
     guessSlot.innerHTML += `${guess}  `
     numGuess++
     remaining.innerHTML = `${10-numGuess}`
+    sadEmoji.textContent = getRandomSadEmoji();
+
 }
 function displayMessage(msg){
   lowOrHi.innerHTML=`<h2>${msg}</h2>`
@@ -92,7 +98,33 @@ function endGame(){
   p.classList.add('button')
   p.innerHTML =`<h2 id="newGame">Start new Game</h2>`;
   startOver.appendChild(p)
+  sadEmoji.innerHTML =''
   playGame =false;
   newGame()
 
 }
+
+
+
+        // function getRandomEmoji() {
+        //     const emojiRangeStart = 0x1F600;
+        //     const emojiRangeEnd = 0x1F64F;
+        //     const randomEmojiCode = Math.floor(Math.random() * (emojiRangeEnd - emojiRangeStart + 1)) + emojiRangeStart;
+        //     return String.fromCodePoint(randomEmojiCode);
+        // }
+
+        // document.getElementById('emoji').textContent = getRandomEmoji();
+//random sad emoji
+function getRandomSadEmoji() {
+  // List of common sad or negative emojis
+  const sadEmojis = [
+      "😢", "😞", "😔", "😟", "😕", "😖", "😫", "😩", "😭", "😿", "🙁", "☹️", "😣", "😥"
+  ];
+
+  // Select a random emoji from the list
+  const randomIndex = Math.floor(Math.random() * sadEmojis.length);
+  return sadEmojis[randomIndex];
+}
+
+// Example usage
+// console.log(getRandomSadEmoji());
