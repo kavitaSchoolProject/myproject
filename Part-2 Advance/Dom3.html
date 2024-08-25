@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color:white">
+    <ul>
+        <li>java</li>
+    </ul>
+    <h1>add name with optimize code</h1>
+    <ol class="orderList">
+        <li>kavita</li>
+    </ol>
+</body>
+<script>
+    function addLanguage(langName){
+        const li =document.createElement("li");
+        li.innerHTML =`${langName}`
+        document.querySelector("ul").appendChild(li);
+    }
+    addLanguage("python");
+    addLanguage("ruby");
+    addLanguage("javascript");
+
+    function addLanguageUsingOptimize(langName){
+        const li =document.createElement("li");
+        li.appendChild(document.createTextNode(langName));
+        document.querySelector("ol").appendChild(li);
+    }
+    addLanguageUsingOptimize("perl");
+    addLanguageUsingOptimize("go");
+    addLanguageUsingOptimize("rust");
+    addLanguageUsingOptimize("swift");
+    addLanguageUsingOptimize("kotlin");
+    // Edit
+    const secondLang =document.querySelector("li:nth-child(2)")
+    // secondLang.innerHTML="mahima"
+    // secondLang.textContent="mahima"
+    const newli = document.createElement("li")
+    newli.textContent = "shivani";
+    secondLang.replaceWith(newli)
+    //that is optimize code for add edit any value in dom
+// another way to change value of any element
+const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML = "<li>mahima</li>"
+// remove element
+    const thirdLang = document.querySelector("li:last-child")
+    thirdLang.parentNode.removeChild(thirdLang)
+    // that is optimize code for remove any element from dom
+</script>
+</html>
